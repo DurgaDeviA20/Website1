@@ -27,7 +27,6 @@ body{
   padding-top:60px;
 }
 
-/* Sparkles */
 .sprinkle{
   position:absolute;
   font-size:14px;
@@ -40,14 +39,12 @@ body{
   to{transform:translateY(-20vh);opacity:1;}
 }
 
-/* Wrapper */
 .parachute-wrapper{
   text-align:center;
   cursor:pointer;
   z-index:2;
 }
 
-/* BIG HEART */
 .parachute{
   font-size:12rem;
   animation:sway 3.5s ease-in-out infinite;
@@ -59,7 +56,6 @@ body{
   100%{transform:rotate(-6deg);}
 }
 
-/* STRINGS */
 .strings{
   display:flex;
   justify-content:space-between;
@@ -73,7 +69,6 @@ body{
   background:white;
 }
 
-/* MAIL */
 .mail{
   width:180px;
   height:120px;
@@ -97,17 +92,22 @@ body{
   font-size:2.5rem;
   font-weight:600;
 }
+
+.hint{
+  margin-top:10px;
+  font-size:1.2rem;
+  font-weight:300;
+  opacity:0.9;
+}
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 GLOBAL BACKGROUND MUSIC -->
 <audio id="bgMusic" loop>
-  <source src="kanmani_anbodu_cover.mp3.mp3" type="audio/mpeg">
+  <source src="kanmani_anbodu_cover.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Sparkles -->
 <script>
 for(let i=0;i<35;i++){
   const s=document.createElement("div");
@@ -119,7 +119,6 @@ for(let i=0;i<35;i++){
 }
 </script>
 
-<!-- MAIN CONTENT -->
 <div class="parachute-wrapper" id="parachute">
   <div class="parachute">❤️</div>
 
@@ -131,9 +130,9 @@ for(let i=0;i<35;i++){
 
   <div class="mail">✉️</div>
   <div class="text">You’ve got mail</div>
+  <div class="hint">Tap the heart to open 💌</div>
 </div>
 
-<!-- 🎶 PLAY MUSIC ON FIRST CLICK -->
 <script>
 const music = document.getElementById("bgMusic");
 document.addEventListener("click", function playOnce(){
