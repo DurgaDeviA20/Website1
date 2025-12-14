@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday 🎉</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background: linear-gradient(135deg,#ff5fa2,#8b5cf6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  overflow:hidden;
+}
+
+/* 💖 FLOATING HEARTS */
+.heart{
+  position:absolute;
+  font-size:1.5rem;
+  opacity:0.8;
+  animation: floatUp linear infinite;
+  pointer-events:none;
+}
+
+@keyframes floatUp{
+  from{ transform:translateY(110vh) scale(0.8); opacity:0; }
+  to{ transform:translateY(-20vh) scale(1.4); opacity:1; }
+}
+
+/* 🎊 CONFETTI */
+.confetti{
+  position:absolute;
+  width:8px;
+  height:14px;
+  animation: confettiFall linear infinite;
+}
+
+@keyframes confettiFall{
+  to{ transform:translateY(120vh) rotate(720deg); opacity:0; }
+}
+
+/* 🎆 FIREWORK */
+.firework{
+  position:absolute;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  animation: firework 1.5s ease-out infinite;
+}
+
+@keyframes firework{
+  0%{ transform:scale(0); opacity:1; }
+  100%{ transform:scale(3); opacity:0; }
+}
+
+/* 💓 THUMBLE (HEARTBEAT) */
+@keyframes thumble{
+  0%,100%{ transform:scale(1); }
+  25%{ transform:scale(1.08); }
+  50%{ transform:scale(0.96); }
+  75%{ transform:scale(1.05); }
+}
+
+/* 🌊 TEXT FLOAT MOTION */
+@keyframes textFloat{
+  0%{ transform:translateY(0); }
+  50%{ transform:translateY(-10px); }
+  100%{ transform:translateY(0); }
+}
+
+/* ✨ TEXT GLOW */
+@keyframes glow{
+  0%{ text-shadow:0 0 10px #fff; }
+  50%{ text-shadow:0 0 25px #ffd700; }
+  100%{ text-shadow:0 0 10px #fff; }
+}
+
+/* ---------- MAIN ---------- */
+.container{
+  width:90%;
+  max-width:1100px;
+  display:flex;
+  align-items:center;
+  gap:60px;
+  z-index:2;
+}
+
+/* IMAGE */
+.image-box img{
+  width:100%;
+  max-width:380px;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.35);
+  animation: thumble 2.5s infinite;
+}
+
+/* TEXT */
+.text-box{
+  max-width:520px;
+  animation: textFloat 4s ease-in-out infinite;
+}
+
+.text-box h1{
+  font-size:3rem;
+  margin-bottom:20px;
+  animation: thumble 2s infinite, glow 3s infinite;
+}
+
+.text-box p{
+  font-size:1.3rem;
+  line-height:1.7;
+  margin-bottom:25px;
+  animation: textFloat 5s infinite;
+}
+
+/* BUTTON */
+.btn{
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  color:#8b5cf6;
+  font-weight:600;
+  cursor:pointer;
+  animation: thumble 2s infinite;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .container{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<script>
+/* 💖 HEARTS */
+for(let i=0;i<40;i++){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💖";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=6+Math.random()*6+"s";
+  h.style.fontSize=1+Math.random()*1.5+"rem";
+  document.body.appendChild(h);
+}
+
+/* 🎊 CONFETTI */
+const colors=["#ff5fa2","#ffd700","#8b5cf6","#00ffd5","#ffffff"];
+for(let i=0;i<200;i++){
+  const c=document.createElement("div");
+  c.className="confetti";
+  c.style.background=colors[Math.floor(Math.random()*colors.length)];
+  c.style.left=Math.random()*100+"vw";
+  c.style.top="-20px";
+  c.style.animationDuration=3+Math.random()*4+"s";
+  document.body.appendChild(c);
+}
+
+/* 🎆 FIREWORK */
+setInterval(()=>{
+  const fw=document.createElement("div");
+  fw.className="firework";
+  fw.style.background=colors[Math.floor(Math.random()*colors.length)];
+  fw.style.left=20+Math.random()*60+"vw";
+  fw.style.top=20+Math.random()*40+"vh";
+  document.body.appendChild(fw);
+  setTimeout(()=>fw.remove(),1500);
+},300);
+</script>
+
+<div class="container">
+  <div class="image-box">
+    <img src="couple.jpg" alt="Birthday Love">
+  </div>
+
+  <div class="text-box">
+    <h1>Happy Birthday Thangoo 🎉</h1>
+
+    <p>
+      Thangapilla nee siricha romba alaga irupa 💖  
+      Un smile epayum un face la irukanum da 🥰  
+      Life long un kooda irupen ✨
+    </p>
+
+    <p>
+      May your life be filled with endless love, happiness  
+      and beautiful memories 🎂🎈  
+      I love you forever 💕
+    </p>
+
+    <button class="btn" onclick="location.href='Surprise.html'">
+
+      Surprise 🎁
+    </button>
+  </div>
+</div>
+
+</body>
+</html>

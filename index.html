@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>You’ve Got Mail 💌</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  height:100vh;
+  background: linear-gradient(135deg,#ff5fa2,#ff87d1);
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  color:white;
+  position:relative;
+  padding-top:60px;
+}
+
+/* Sparkles */
+.sprinkle{
+  position:absolute;
+  font-size:14px;
+  opacity:0.7;
+  animation: sprinkleFloat linear infinite;
+}
+
+@keyframes sprinkleFloat{
+  from{transform:translateY(110vh);opacity:0;}
+  to{transform:translateY(-20vh);opacity:1;}
+}
+
+/* Wrapper */
+.parachute-wrapper{
+  text-align:center;
+  cursor:pointer;
+  z-index:2;
+}
+
+/* BIG HEART */
+.parachute{
+  font-size:12rem;
+  animation:sway 3.5s ease-in-out infinite;
+}
+
+@keyframes sway{
+  0%{transform:rotate(-6deg);}
+  50%{transform:rotate(6deg);}
+  100%{transform:rotate(-6deg);}
+}
+
+/* STRINGS */
+.strings{
+  display:flex;
+  justify-content:space-between;
+  width:100px;
+  margin:10px auto;
+}
+
+.string{
+  width:3px;
+  height:60px;
+  background:white;
+}
+
+/* MAIL */
+.mail{
+  width:180px;
+  height:120px;
+  background: linear-gradient(135deg,#6dd5fa,#2980ff);
+  border-radius:20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:3rem;
+  animation: floatMail 2.5s ease-in-out infinite;
+  margin:20px auto;
+}
+
+@keyframes floatMail{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0);}
+}
+
+.text{
+  font-size:2.5rem;
+  font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 GLOBAL BACKGROUND MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="kanmani_anbodu_cover.mp3.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Sparkles -->
+<script>
+for(let i=0;i<35;i++){
+  const s=document.createElement("div");
+  s.className="sprinkle";
+  s.innerHTML=["✨","❋","•","˚"][Math.floor(Math.random()*4)];
+  s.style.left=Math.random()*100+"vw";
+  s.style.animationDuration=6+Math.random()*6+"s";
+  document.body.appendChild(s);
+}
+</script>
+
+<!-- MAIN CONTENT -->
+<div class="parachute-wrapper" id="parachute">
+  <div class="parachute">❤️</div>
+
+  <div class="strings">
+    <div class="string"></div>
+    <div class="string"></div>
+    <div class="string"></div>
+  </div>
+
+  <div class="mail">✉️</div>
+  <div class="text">You’ve got mail</div>
+</div>
+
+<!-- 🎶 PLAY MUSIC ON FIRST CLICK -->
+<script>
+const music = document.getElementById("bgMusic");
+document.addEventListener("click", function playOnce(){
+  music.volume = 0.35;
+  music.play();
+  document.removeEventListener("click", playOnce);
+});
+
+document.getElementById("parachute").addEventListener("click",()=>{
+  setTimeout(()=>{
+    window.location.href="password.html";
+  },800);
+});
+</script>
+
+</body>
+</html>
